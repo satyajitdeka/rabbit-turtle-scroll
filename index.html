@@ -1,0 +1,186 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+</head>
+
+<body>
+    <div style="height: 6000px;">
+        <div style="height: 20px; width: 100%; background-color: lightblue; position: fixed;">
+            Content of the document......
+        </div>
+        <div style="height: 20px; width: 100%; background-color: lightblue; position: fixed; top: 90%;">
+            My Content of the document......
+        </div>
+    </div>
+</body>
+
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.test-class {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    -webkit-animation: mymove 3s;  /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 3;  /* Chrome, Safari, Opera */
+    animation: mymove 3s;
+    animation-iteration-count: 1;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+</style>
+</head>
+<body>
+<div style="height: 20px; width: 100%; background-color: lightblue; position: fixed; top: 90%;">
+    My Content of the document......
+</div>
+<div class="test-class"></div>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Add CSS class to header on scroll">
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+  
+    <style> 
+      
+    body {
+        height: 6000px;;
+    }
+
+    .clearHeader {
+        height:90px;
+        background: url('rabbit.png') no-repeat scroll 0px 0px;
+        position:fixed;
+        top:0;
+        left:45%;
+        width:92px;
+        -webkit-transition: background 2s; /* For Safari 3.1 to 6.0 */
+        transition: background 2s;
+    }
+        
+    .turtle {
+        height: 80px; 
+        width: 92px; 
+        background: url('turtle.png') no-repeat scroll 0px 0px;
+        position: fixed; 
+        top: 60%;
+        left: 45%;
+    }
+
+    .clearHeader.move1 {
+        top:10%;
+    }
+    .clearHeader.move2 {
+        top:15%;
+    }
+    .clearHeader.move3 {
+        top:20%;
+    }  
+    .clearHeader.move4 {
+        top:25%;
+    }    
+    .clearHeader.move5 {
+        top:30%;
+    }    
+    </style>    
+    
+    <script>
+        var iScrollPos = 0;
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+            var dynamicScroll = scroll;
+            /*console.log('scroll',scroll);
+            console.log('dynamicScroll',dynamicScroll);*/
+            
+            /*if (scroll >= 100) {
+                for(var i = 5; i < 50; i++){
+                    setTimeout(function(){ 
+                        console.log('i',i);
+                        $(".clearHeader").css("top", i+"%");
+                    }, 3000);
+                }
+            }*/
+            /*
+            if(scroll === 600){
+                dynamicScroll = 
+            }*/
+            
+            var iCurScrollPos = $(this).scrollTop();
+            if (iCurScrollPos > iScrollPos) {        
+                //Scrolling Down
+                moveImgae (scroll);
+            } else {  
+                $(".clearHeader").css('top', '0%');
+               //Scrolling Up
+            }
+
+            iScrollPos = iCurScrollPos;          
+            
+            
+            
+        });
+        
+        function moveImgae (scroll) {
+            if ((scroll >= 100 && scroll < 200) || (scroll >= 700 && scroll < 800) || (scroll >= 1300 && scroll < 1400) || (scroll >= 1900 && scroll < 2000)) {
+            /*    console.log('scroll1',scroll);*/
+                //$(".clearHeader").addClass("move1");
+                $(".clearHeader").css('top', '7%');
+            }
+            else if ((scroll >= 200 && scroll < 300) || (scroll >= 800 && scroll < 900) || (scroll >= 1400 && scroll < 1500) || (scroll >= 2000 && scroll < 2100)) {
+                /*console.log('scroll2',scroll);*/
+                //$(".clearHeader").addClass("move2");
+                $(".clearHeader").css('top', '14%');
+            }
+            else if ((scroll >= 300 && scroll < 400) || (scroll >= 900 && scroll < 1000) || (scroll >= 1500 && scroll < 1600) || (scroll >= 2100 && scroll < 2200)) {
+                /*console.log('scroll3',scroll);*/
+                //$(".clearHeader").addClass("move3");
+                $(".clearHeader").css('top', '21%');
+            }
+            else if ((scroll >= 400 && scroll < 500) || (scroll >= 1000 && scroll < 1100) || (scroll >= 1600 && scroll < 1700) || (scroll >= 2200 && scroll < 2300)) {
+                /*console.log('scroll4',scroll);*/
+                //$(".clearHeader").addClass("move4");
+                $(".clearHeader").css('top', '28%');
+            }
+            else if ((scroll >= 500 && scroll < 600) || (scroll >= 1100 && scroll < 1200) || (scroll >= 1700 && scroll < 1800) || (scroll >= 2300 && scroll < 2400)) {
+                /*console.log('scroll5',scroll);*/
+                //$(".clearHeader").addClass("move5");
+                $(".clearHeader").css('top', '35%');
+            }
+            else {
+                $(".clearHeader").css('top', '0%');
+            }
+        }
+    </script>
+</head>
+<body>
+<!--<header class="clearHeader">
+    
+</header>-->
+    
+        <header class="clearHeader"></header>
+        
+        <div class="turtle"></div>
+</body>
+</html>
