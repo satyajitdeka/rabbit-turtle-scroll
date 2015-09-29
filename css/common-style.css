@@ -1,0 +1,23 @@
+body {
+    height: 6000px;;
+}
+
+.rabbit {
+    height:90px;
+    background: url('../images/rabbit.png') no-repeat scroll 0px 0px;
+    position:fixed;
+    top:0;
+    left:45%;
+    width:92px;
+    -webkit-transition: background 2s; /* For Safari 3.1 to 6.0 */
+    transition: background 2s;
+}
+
+.turtle {
+    height: 80px; 
+    width: 92px; 
+    background: url('../images/turtle.png') no-repeat scroll 0px 0px;
+    position: fixed; 
+    top: 60%;
+    left: 45%;
+}
